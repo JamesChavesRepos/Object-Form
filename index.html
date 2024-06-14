@@ -29,19 +29,19 @@
         <button type="button" onclick="generateAndCopyMsgObject()">Generate and Copy Message Object</button>
     </form>
     <script>
-        function generateAndCopyMsgObject() {
-
-            let msgObjects = Array.from(document.querySelectorAll('textarea')).map(step => {
+        function generateAndCopyMsgObject(e) {
+            console.log(e)
+            let msgObjects = Array.from(document.querySelectorAll(`${step}`)).map(step => {
                 return `${step.id}: "${step.value}"`
             })
 
-            copyMesgObject(msgObjects);
+            copyAnyObject(msgObjects);
             alert("Proper format copied to your clipboard! Please send this to James or Hector for website updates:\n\n" + msgObjects);
         }
 
-        function copyMesgObject(text) {
+        const copyAnyObject = (txt) =>{
             const objectCopy = document.createElement("textarea");
-            objectCopy.value = `const msgObject = ${text}`;
+            objectCopy.value = `const msgObject = ${txt}`;
             document.body.appendChild(objectCopy);
             objectCopy.select();
             document.execCommand("copy");
