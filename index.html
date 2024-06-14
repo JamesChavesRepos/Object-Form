@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steps Information Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="stepsForm">
+        <label for="step1">Step 1:</label>
+        <textarea id="step1" name="step1"></textarea><br><br>
+        <label for="step2">Step 2:</label>
+        <textarea id="step2" name="step2"></textarea><br><br>
+        <label for="step3">Step 3:</label>
+        <textarea id="step3" name="step3"></textarea><br><br>
+        <label for="step4">Step 4:</label>
+        <textarea id="step4" name="step4"></textarea><br><br>
+        <label for="step5">Step 5:</label>
+        <textarea id="step5" name="step5"></textarea><br><br>
+        <label for="step6">Step 6:</label>
+        <textarea id="step6" name="step6"></textarea><br><br>
+        <label for="step7">Step 7:</label>
+        <textarea id="step7" name="step7"></textarea><br><br>
+        <label for="step8">Step 8:</label>
+        <textarea id="step8" name="step8"></textarea><br><br>
+        <button type="button" onclick="generateAndCopyMsgObject()">Generate and Copy Message Object</button>
+    </form>
+    <script>
+        function generateAndCopyMsgObject() {
+
+            let msgObjects = Array.from(document.querySelectorAll('textarea')).map(step => {
+                return `${step.id}: "${step.value}"`
+            })
+
+            copyMesgObject(msgObjects);
+            alert("Proper format copied to your clipboard! Please send this to James or Hector for website updates:\n\n" + msgObjects);
+        }
+
+        function copyMesgObject(text) {
+            const objectCopy = document.createElement("textarea");
+            objectCopy.value = `const msgObject = ${text}`;
+            document.body.appendChild(objectCopy);
+            objectCopy.select();
+            document.execCommand("copy");
+            document.body.removeChild(objectCopy);
+        }
+    </script>
+</body>
+
+</html>

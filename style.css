@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+form {
+    width: 80%;
+}
+
+form textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: #d9d9d9;
+}
+
+form textarea:hover {
+    border-bottom: 2px solid #d9d9d9;
+}
+
+form textarea:focus {
+    background-color: transparent;
+    border-bottom: 2px solid #C40C11;
+}
+
+form button {
+    height: 40px;
+    width: 80%;
+    background-color: #C40C11;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+}
+form textarea::placeholder{
+    color: #C40C11; 
+}
